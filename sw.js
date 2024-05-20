@@ -1,4 +1,4 @@
-const staticCacheName = 'camera-html-v1'
+const staticCacheName = 'camera-html-v2'
 
 const resourcesToPrecache = [
     '/camera-html/',
@@ -18,7 +18,6 @@ const resourcesToPrecache = [
 // CACHE FIRST
 
 // self neste caso se refere ao service worker, e não ao window (browser)
-]
 
 // CACHE FIRST
 
