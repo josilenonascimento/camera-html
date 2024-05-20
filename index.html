@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access Camera</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/icon-48x48.png">
+  <meta name="theme-color" content="#0045B8">
+</head>
+
+<body>
+  <video id="video" width="640" height="480" autoplay></video>
+  <script src="install-sw.js"></script>
+  <script>
+    var video = document.getElementById('video');
+
+    // Get access to the camera!
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Not adding `{ audio: true }` since we only want video now
+
+      /* Setting up the constraint */
+      var facingMode = "user"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
+      var constraints = {
+        video: true,
+        video: {
+          facingMode
+        }
+      }
+      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+      });
+    }
+  </script>
+</body>
+
+</html>
