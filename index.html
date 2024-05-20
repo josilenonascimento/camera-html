@@ -32,15 +32,15 @@
     }
 
     video {
-      height: 1440px;
-      width: 720px;
+      height: auto;
+      width: auto;
     }
   </style>
 </head>
 
 <body>
   <div id="wrapper-video">
-    <video id="video" width="720" height="1440" autoplay></video>
+    <video id="video" autoplay></video>
   </div>
 
   <script src="install-sw.js"></script>
@@ -58,8 +58,8 @@
         video: {
           facingMode
         },
-        width: 1920,
-        height: 1080
+        // width: 1920,
+        // height: 1080
       }
       navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
         //video.src = window.URL.createObjectURL(stream);
