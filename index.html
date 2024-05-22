@@ -64,18 +64,18 @@
       var constraints = {
         video: {
           facingMode: facingMode,
-          // width: {ideal: 4096},
+          width: {ideal: 1920}, //4096},
           // height: {ideal: 2160}
-          advanced: [
-            // {width: {exact: 2560}},
-            // {width: {exact: 1920}},
-            // {width: {exact: 1280}},
-            // {width: {exact: 1024}},
-            // {width: {exact: 900}},
-            // {width: {exact: 800}},
-            {width: {exact: 640}},
-            // {width: {exact: 320}}
-          ]
+          // advanced: [
+          //   // {width: {exact: 2560}},
+          //   // {width: {exact: 1920}},
+          //   // {width: {exact: 1280}},
+          //   // {width: {exact: 1024}},
+          //   // {width: {exact: 900}},
+          //   // {width: {exact: 800}},
+          //   {width: {exact: 640}},
+          //   // {width: {exact: 320}}
+          // ]
         }
       }
       navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
