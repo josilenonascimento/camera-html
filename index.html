@@ -27,6 +27,7 @@
       width: 100%;
       height: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
@@ -35,17 +36,24 @@
       height: auto;
       width: auto;
     }
+
+    #display {
+      border: 1px solid black;
+    }
   </style>
 </head>
 
 <body>
+
   <div id="wrapper-video">
     <video id="video" autoplay></video>
+    <p id="display">show me resolution</p>
   </div>
 
   <script src="install-sw.js"></script>
   <script>
     var video = document.getElementById('video');
+    var show = document.getElementById('display');
 
     // Get access to the camera!
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -68,16 +76,19 @@
             {width: {exact: 640}},
             // {width: {exact: 320}}
           ]
-        },
-        // width: 1920,
-        // height: 1080
+        }
       }
       navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
         //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
-        video.play();
       });
     }
+
+    function getResolution() {
+      show.innerText = `${video.videoWidth}x${video.videoHeight}`
+    }
+
+    video.addEventListener('canplay', getResolution);
   </script>
 </body>
 
