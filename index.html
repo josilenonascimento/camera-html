@@ -36,10 +36,6 @@
       height: auto;
       width: auto;
     }
-
-    #display {
-      border: 1px solid black;
-    }
   </style>
 </head>
 
@@ -47,13 +43,11 @@
 
   <div id="wrapper-video">
     <video id="video" autoplay></video>
-    <p id="display">show me resolution</p>
   </div>
 
   <script src="install-sw.js"></script>
   <script>
     var video = document.getElementById('video');
-    var show = document.getElementById('display');
 
     // Get access to the camera!
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -64,8 +58,6 @@
       var constraints = {
         video: {
           facingMode: facingMode,
-          // width: {ideal: 2560 }, //4096},
-          // height: {ideal: 720},
           advanced: [
             {width: {exact: 2560}},
             {width: {exact: 1920}},
@@ -79,17 +71,16 @@
         }
       }
       navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-        //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
       });
     }
 
     function getResolution() {
-      show.innerText = `${video.videoWidth}x${video.videoHeight}`
       video.style.width = "640px"
     }
 
     video.addEventListener('canplay', getResolution);
+
   </script>
 </body>
 
