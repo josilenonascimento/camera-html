@@ -3,9 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-  <meta name="viewport"
-    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <meta name="viewport" content="user-scalable=no">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <title>Access Camera</title>
   <link rel="manifest" href="manifest.json">
@@ -59,8 +57,6 @@
   <script>
     var video = document.getElementById('video');
     var slider = document.getElementById('resolution');
-
-
 
     slider.addEventListener("input", (event) => {
       console.log(event.target.value);
