@@ -1,4 +1,4 @@
-const staticCacheName = 'camera-html-v0.1.7'
+const staticCacheName = 'camera-html-v0.1.8'
 
 const resourcesToPrecache = [
     '/camera-html/',
